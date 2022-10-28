@@ -42,6 +42,17 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\AvtoSizeSpawnPoint.cs" />
+     <Compile Include="Assets\Enums.cs" />
+     <Compile Include="Assets\IGetTypeSpher.cs" />
+     <Compile Include="Assets\Entity.cs" />
+     <Compile Include="Assets\IGetGridPosition.cs" />
+     <Compile Include="Assets\Fabric.cs" />
+     <Compile Include="Assets\Pool.cs" />
+     <Compile Include="Assets\Pher.cs" />
+     <Compile Include="Assets\TestGrid.cs" />
+     <Compile Include="Assets\FabricSpher.cs" />
+     <Compile Include="Assets\MySerializeDictenery\CustomEdit.cs" />
+     <Compile Include="Assets\MySerializeDictenery\Eb.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity 2021.3.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
