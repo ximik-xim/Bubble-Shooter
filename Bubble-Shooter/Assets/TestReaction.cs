@@ -5,29 +5,12 @@ using UnityEngine;
 
 public class TestReaction : MonoBehaviour
 {
-    [SerializeField] private TestGrid _testGrid;
-
     [SerializeField] private Eb<TypeSearch, SearchEntity > _listSearch;
     [SerializeField] private Eb<TypeActionOnEntity,ActionOnEntity > _listAction;
 
-
-    private Entity[,] _a;
-    
-    public void SetArray(Entity[,] a)
+    public void Reaction(Entity entityCollision, Vector2 startSearchPostition, TypeSearch typeSearch, TypeActionOnEntity typeActionOnEntity, Entity[,] grid)
     {
-        _a = a;
-    }
-    
-
-    private void Start()
-    {
-        
-        
-    }
-
-    public void Reaction(Entity entityCollision, Vector2 startSearchPostition, TypeSearch typeSearch, TypeActionOnEntity typeActionOnEntity)
-    {
-    var listDetectEntity = _listSearch[typeSearch].Search(entityCollision, startSearchPostition, _a);
-    _listAction[typeActionOnEntity].Action(listDetectEntity,typeActionOnEntity);
+        var listDetectEntity = _listSearch[typeSearch].Search(entityCollision, startSearchPostition, grid);
+        _listAction[typeActionOnEntity].Action(listDetectEntity, typeActionOnEntity);
     }
 }

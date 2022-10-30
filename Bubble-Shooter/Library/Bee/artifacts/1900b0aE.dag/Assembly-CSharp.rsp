@@ -372,7 +372,7 @@
 "Assets/Enums.cs"
 "Assets/Fabric.cs"
 "Assets/FabricSpher.cs"
-"Assets/IGetTypeSpher.cs"
+"Assets/GridElement.cs"
 "Assets/Interfase.cs"
 "Assets/MySerializeDictenery/CustomEdit.cs"
 "Assets/MySerializeDictenery/Eb.cs"
@@ -383,7 +383,9 @@
 "Assets/TestFab.cs"
 "Assets/TestGameManager.cs"
 "Assets/TestGrid.cs"
+"Assets/TestGun.cs"
 "Assets/TestReaction.cs"
+"Assets/TestWrapper.cs"
 -langversion:9.0
 
 /deterministic

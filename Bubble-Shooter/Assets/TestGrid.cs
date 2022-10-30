@@ -1,25 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
-
 public class TestGrid : MonoBehaviour
 { 
     private Entity[,] _sizeGrid;
    [SerializeField] private AvtoSizeSpawnPoint _avtoSizeSpawnPoint;
+   [SerializeField] private GridElement _gridElement;
    [SerializeField] private static TestReaction _reaction;//переделать!
    
   [SerializeField]  private int sizeGridX;
   [SerializeField]  private int sizeGridY;
     void Start()
     {
-        _reaction.SetArray(_sizeGrid);
-        
-         sizeGridX = (int)_avtoSizeSpawnPoint.FildSize.x;//проверить а то мож проебываюсь т.к кол-во может быть на 1 больше
-         sizeGridY = (int)_avtoSizeSpawnPoint.FildSize.y;
+        sizeGridX = (int)_avtoSizeSpawnPoint.FildSize.x;//проверить а то мож проебываюсь т.к кол-во может быть на 1 больше
+        sizeGridY = (int) _avtoSizeSpawnPoint.FildSize.y;
         
         _sizeGrid = new Entity[sizeGridX, sizeGridY];
+
+        
+        CreatGird();
     }
 
+
+    private void CreatGird()
+    {
+        for (int y = 0; y < sizeGridY; y++)
+        {
+            for (int x = 0; x < sizeGridX; x++)
+            {
+                var Element =  Instantiate(_gridElement, _avtoSizeSpawnPoint._centrPoint[y][x], Quaternion.identity);
+                Element.transform.parent = this.transform;
+                Element.gameObject.GetComponent<BoxCollider2D>().size = new Vector2(_avtoSizeSpawnPoint.Width, _avtoSizeSpawnPoint.Height);
+                Element.Create(new Vector2(x, y), this);
+                Element.name = "Grid Element[x " + x + ", y " + y + "]";
+            }
+        }
+    }
+    
     public void AddEntity(List<List<Entity>> entity)
     {
         //привести в порядок эту херню и дописать логику для смены позиций у обьектов;
@@ -60,7 +78,7 @@ public class TestGrid : MonoBehaviour
         }
         
     }
-    
+
     private bool CheckEmptyLine(int countLine)
     {
         int lineCheck = sizeGridY -= countLine;
@@ -135,87 +153,17 @@ public class TestGrid : MonoBehaviour
             }
         }
     }
-
-    //int lastLineRemain = sizeGridY - entity.Count;
-    // private void DisactiveLineEntity(int startLineDisactive)
-    // {
-    //     bool thereEntity = false;
-    //     for (int i = startLineDisactive; i < sizeGridY; i++) 
-    //     {
-    //          thereEntity = false;
-    //         for (int j = 0; j < sizeGridX; j++)
-    //         {
-    //             if (_sizeGrid[i, j] != null)
-    //             {
-    //                 thereEntity = true;
-    //                 _sizeGrid[i, j].gameObject.SetActive(false);
-    //             }
-    //         }
-    //
-    //         if (thereEntity == false)
-    //         {
-    //             break;
-    //         }
-    //     }
-    // }
-
-    // private void OffsetLine(int startLineOffset)
-    // {
-    //     for (int i = sizeGridY-startLineOffset; i < sizeGridY; i++)
-    //     {
-    //         for (int j = 0; j < sizeGridX; j++)
-    //         {
-    //             _sizeGrid[i, j] = _sizeGrid[startLineOffset, j];
-    //         }
-    //
-    //         startLineOffset++;
-    //     }
-    // }
     
-    // private int Check(int countLine)
-    // {
-    //     int lineCheck = sizeGridY -= countLine;
-    //     for (int i = 0; i < sizeGridX; i++)
-    //     {
-    //         if (_sizeGrid[lineCheck, i] != null)
-    //         {
-    //             //return false;
-    //            return ChekClirLine(lineCheck);
-    //         }
-    //     }
-    //
-    //     return lineCheck;
-    // }
-    //
-    // private int ChekClirLine(int lastLineCheck)
-    // {
-    //     lastLineCheck += 1;
-    //     bool thereEntity = false;
-    //     
-    //     for (int i = lastLineCheck; i < sizeGridY; i++)
-    //     {
-    //         thereEntity = false;
-    //         for (int x = 0; x < sizeGridX; x++)
-    //         {
-    //             if (_sizeGrid[lastLineCheck, x] != null)
-    //             {
-    //                 thereEntity = true;
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //
-    //     if (thereEntity)
-    //     {
-    //         return -1;
-    //     }
-    //
-    //     return lastLineCheck;
-    // }
-    // Update is called once per frame
-
     public int GetSizeLine()
     {
         return (int) _avtoSizeSpawnPoint.FildSize.x;
+    }
+
+    public void Reaction(Entity entity,Vector2 startSearchPostition,TypeSearch typeSearch,TypeActionOnEntity typeActionOnEntity)
+    {
+        //почти все работает, осталось лишь или сделать статическим клсс TestReaction или ещё что то придумать
+        //а ну ещё придумать че делать с шаром после столкновения
+        //и продумать как проеврять то что мы столкнулись с пустым коллайдером или нет(думаю просто тупо проверку сделать сдесь на то что есть ли тут обьект(Entity) или нет)
+       // _reaction.Reaction(entity, startSearchPostition, typeSearch, typeActionOnEntity, _sizeGrid);
     }
 }
