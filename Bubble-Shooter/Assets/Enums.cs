@@ -5,3 +5,12 @@ Blue,
 Red,
 Green
 }
+
+public enum TypeSearch
+{
+    None
+}
+public enum TypeActionOnEntity
+{
+    None
+}

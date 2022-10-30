@@ -6,9 +6,9 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public abstract class Fabric<K, T> : MonoBehaviour where T : Entity where K : Enum 
+public abstract class Fabric<K, T> : TestFab where T : Entity where K : Enum 
 {
-    [SerializeField] protected int _countLine;
+ //   [SerializeField] protected int _countLine;
     [SerializeField] protected TestGrid _testGrid;
     [SerializeField] protected Eb<K, T> _containerEntity;
 
@@ -18,10 +18,10 @@ public abstract class Fabric<K, T> : MonoBehaviour where T : Entity where K : En
     {
         _containerEntity.Initialization();
         
-        if (_countLine > _testGrid.GetSizeLine())
-        {
-            _countLine = _testGrid.GetSizeLine();
-        }
+        // if (_countLine > _testGrid.GetSizeLine())
+        // {
+        //     _countLine = _testGrid.GetSizeLine();
+        // }
     }
 
     protected virtual List<List<Entity>> Create(int countLine)
@@ -63,11 +63,15 @@ public abstract class Fabric<K, T> : MonoBehaviour where T : Entity where K : En
         return entity;
     }
     
-    public virtual void CCreate(int countLine)
+    // public virtual void CCreate(int countLine)
+    // {
+    //     _testGrid.AddEntity(Create(countLine)); 
+    // }
+    protected override void Spawn(int countLine)
     {
-        _testGrid.AddEntity(Create(countLine)); 
+        _testGrid.AddEntity(Create(countLine));
     }
-    
+
     protected void UpdatePool(bool activeObject,MonoBehaviour monoBehaviour)
     {
         T entity = monoBehaviour as T;  

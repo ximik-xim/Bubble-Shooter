@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TestGrid : MonoBehaviour
-{
+{ 
     private Entity[,] _sizeGrid;
-    private AvtoSizeSpawnPoint _avtoSizeSpawnPoint;
-
-    private int sizeGridX;
-    private int sizeGridY;
+   [SerializeField] private AvtoSizeSpawnPoint _avtoSizeSpawnPoint;
+   [SerializeField] private static TestReaction _reaction;//переделать!
+   
+  [SerializeField]  private int sizeGridX;
+  [SerializeField]  private int sizeGridY;
     void Start()
     {
+        _reaction.SetArray(_sizeGrid);
+        
          sizeGridX = (int)_avtoSizeSpawnPoint.FildSize.x;//проверить а то мож проебываюсь т.к кол-во может быть на 1 больше
          sizeGridY = (int)_avtoSizeSpawnPoint.FildSize.y;
         
@@ -48,7 +51,7 @@ public class TestGrid : MonoBehaviour
             {
                 for (int j = 0; j < sizeGridX; j++)
                 {
-                    list[i][j] = entity[entity.Count - i][j];
+                    list[i][j] = entity[entity.Count - i][j]; 
                 }
             }
             

@@ -372,13 +372,18 @@
 "Assets/Enums.cs"
 "Assets/Fabric.cs"
 "Assets/FabricSpher.cs"
-"Assets/IGetGridPosition.cs"
 "Assets/IGetTypeSpher.cs"
+"Assets/Interfase.cs"
 "Assets/MySerializeDictenery/CustomEdit.cs"
 "Assets/MySerializeDictenery/Eb.cs"
+"Assets/New Folder/ActionOnEntity.cs"
+"Assets/New Folder/SearchEntity.cs"
 "Assets/Pher.cs"
 "Assets/Pool.cs"
+"Assets/TestFab.cs"
+"Assets/TestGameManager.cs"
 "Assets/TestGrid.cs"
+"Assets/TestReaction.cs"
 -langversion:9.0
 
 /deterministic
