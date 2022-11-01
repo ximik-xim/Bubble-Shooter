@@ -284,11 +284,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5559b0802a1226498bae059c349029a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testGrid: {fileID: 0}
+  _testGrid: {fileID: 1827224764}
   _containerEntity:
     _listKeyAndData:
     - _k: 1
-      _d: {fileID: 0}
+      _d: {fileID: 8988225315963815990, guid: 8f92ecd28dc5bbd4b9fc77544bf47d5a, type: 3}
+    - _k: 2
+      _d: {fileID: 8163081094337053061, guid: b465d139c6234714b859bb11bbb9c8ef, type: 3}
+    - _k: 3
+      _d: {fileID: 8988225315963815990, guid: 96b3b9e9a71340743b64f298e3890016, type: 3}
 --- !u!4 &950825822
 Transform:
   m_ObjectHideFlags: 0
@@ -314,6 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1166813317}
   - component: {fileID: 1166813316}
+  - component: {fileID: 1166813318}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -335,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireEntity:
   - {fileID: 8988225316028190467}
+  Test: {fileID: 8988225315963815990, guid: 8f92ecd28dc5bbd4b9fc77544bf47d5a, type: 3}
 --- !u!4 &1166813317
 Transform:
   m_ObjectHideFlags: 0
@@ -343,13 +349,65 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166813315}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19, y: -5.36, z: 0.014696987}
+  m_LocalPosition: {x: 0.5, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1166813318
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166813315}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.2, y: 0.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1222932944
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,11 +440,11 @@ MonoBehaviour:
   _listSearch:
     _listKeyAndData:
     - _k: 0
-      _d: {fileID: 0}
+      _d: {fileID: 11400000, guid: 3063fc5ebfc08b34faeda678db0379df, type: 2}
   _listAction:
     _listKeyAndData:
     - _k: 0
-      _d: {fileID: 0}
+      _d: {fileID: 11400000, guid: af7674d97303b9b4fa26b6ca2bf93dff, type: 2}
 --- !u!4 &1222932946
 Transform:
   m_ObjectHideFlags: 0
@@ -433,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _avtoSizeSpawnPoint: {fileID: 410394357}
   _gridElement: {fileID: 617440096101691208, guid: d37a5c920f4d0e94ba9863b86f65fabf, type: 3}
+  _reaction: {fileID: 1222932945}
   sizeGridX: 0
   sizeGridY: 0
 --- !u!4 &1827224765
@@ -479,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21444623315a07847a579172ded0575a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countLineSpawn: 0
+  countLineSpawn: 4
   countShootBeforeSpawn: 0
   _fabric:
   - {fileID: 950825821}
@@ -515,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1558135101258540126, guid: b465d139c6234714b859bb11bbb9c8ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6
+      value: -6.81
       objectReference: {fileID: 0}
     - target: {fileID: 1558135101258540126, guid: b465d139c6234714b859bb11bbb9c8ef, type: 3}
       propertyPath: m_LocalPosition.y

@@ -16,7 +16,7 @@ public class TestGameManager : MonoBehaviour
   {
     foreach (var VARIABLE in _fabric)
     {
-      //VARIABLE
+      VARIABLE.Spawn(countLineSpawn);
     }
   }
 }
